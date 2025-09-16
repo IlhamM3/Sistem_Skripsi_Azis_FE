@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-white">
+  <section>
     <div id="Carrosal" class="relative w-full">
       <div class="relative md:h-[520px] h-[500px] overflow-hidden">
         <div
@@ -167,7 +167,7 @@
         </div>
       </div>
     </div>
-  </main>
+  </section>
 </template>
 
 <script setup>
