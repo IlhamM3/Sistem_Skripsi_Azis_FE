@@ -84,21 +84,17 @@
         class="hidden items-center justify-center relative -top-16 md:-top-12"
       >
         <div class="max-w-screen-xl flex flex-col gap-5 w-full px-5">
-          <h1 class="font-bold text-xl md:text-3xl">Hasil Interpretation</h1>
-          <div class="w-full">
-            <img :src="ImageInter" alt="ImageInter" srcset="" />
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="w-full flex flex-col gap-2">
+              <h1 class="font-bold text-xl md:text-3xl">Hasil Prediksi</h1>
+              <img :src="ImagePred" alt="" srcset="" />
+            </div>
+            <div class="w-full flex flex-col gap-2">
+              <h1 class="font-bold text-xl md:text-3xl">Hasil interpretasi</h1>
+              <img :src="ImageInter" alt="ImageInter" srcset="" />
+            </div>
           </div>
-          <h1 class="font-bold text-xl md:text-3xl">Hasil Prediksi</h1>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <img
-              v-for="(item, index) in ImagePred"
-              :key="index"
-              :src="item"
-              alt=""
-              srcset=""
-            />
-          </div>
-          <h1 class="font-bold text-xl md:text-3xl">Hasil Prediksi Tensor</h1>
+          <h1 class="font-bold text-xl md:text-3xl">Hasil Prediksi Horizon</h1>
           <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
             <div class="relative w-full min-w-[500px]">
               <table class="w-full text-sm md:text-lg text-left rtl:text-right">
@@ -184,7 +180,7 @@ const images = ref([
   "image5.png",
 ]);
 const currentIndex = ref(0);
-const ImagePred = ref([]);
+const ImagePred = ref("");
 const ImageInter = ref("");
 const rows = ref([]);
 
@@ -263,9 +259,10 @@ const submitForm = async () => {
       pauseOnHover: false,
     });
 
-    ImagePred.value = data.prediction_files.map(
-      (file) => `${import.meta.env.VITE_BASE_URL}FileUpload/${file}`
-    );
+    ImagePred.value = `${import.meta.env.VITE_BASE_URL}FileUpload/${
+      data.prediction_files
+    }`;
+
     ImageInter.value = `${import.meta.env.VITE_BASE_URL}FileUpload/${
       data.interpretation_file
     }`;
