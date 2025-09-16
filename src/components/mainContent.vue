@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="bg-white">
     <div id="Carrosal" class="relative w-full">
       <div class="relative md:h-[520px] h-[500px] overflow-hidden">
         <div
