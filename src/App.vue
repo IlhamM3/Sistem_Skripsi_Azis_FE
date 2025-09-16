@@ -5,7 +5,11 @@ import mainContent from './components/mainContent.vue';
 </script>
 
 <template>
-  <navbar />
-  <mainContent/>
-  <FooterCus />
+  <div class="min-h-screen flex flex-col bg-gray-50">
+    <navbar />
+    <main class="flex-grow">
+      <mainContent />
+    </main>
+    <FooterCus />
+  </div>
 </template>
