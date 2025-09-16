@@ -48,7 +48,7 @@
                 <h1 class="font-bold text-xl md:text-3xl">Hasil Interpretation</h1>
                 <div class="w-full">
                   <img
-                    :src="'http://127.0.0.1:5000/FileUpload/' + ImageInter"
+                    :src="import.meta.env.VITE_BASE_URL + 'FileUpload/' + ImageInter"
                     alt="ImageInter"
                     srcset=""
                   >
@@ -58,7 +58,7 @@
                   <img
                     v-for="(item, index) in ImagePred"
                     :key="index"
-                    :src="'http://127.0.0.1:5000/FileUpload/' + item"
+                    :src="import.meta.env.VITE_BASE_URL +'FileUpload/' + item"
                     alt=""
                     srcset=""
                   >
