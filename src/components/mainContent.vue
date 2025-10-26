@@ -1,61 +1,167 @@
 <template>
-  <section>
-    <div id="Carrosal" class="relative w-full">
-      <div class="relative md:h-[520px] h-[500px] overflow-hidden">
+  <section class="from-orange-500 to-white min-h-screen bg-gradient-to-b">
+    <!-- === SECTION HERO === -->
+    <div
+      class="flex flex-col items-center justify-center pb-52 pt-72 text-white"
+    >
+      <h1 class="text-6xl font-extrabold">
+        AI-Powered <span class="text-gray-900">Solar Forecasting</span>
+      </h1>
+      <p class="text-center text-xl pt-5">
+        Optimalkan performa energi surya dengan prediksi akurat berbasis AI
+        dengan membuat<br />sistem tenaga surya makin efisien dan handal!
+      </p>
+      <a
+        href="#CobaAI"
+        class="bg-orange-500 px-5 py-3 rounded-xl mt-10 shadow-xl hover:bg-orange-900 transition-all"
+        >Coba Sekarang</a
+      >
+    </div>
+
+    <!-- === SECTION PENJELASAN MODEL + PRODUK SOLUSI === -->
+    <div class="w-full flex justify-center my-24 px-6">
+      <div
+        class="max-w-screen-xl flex flex-col md:flex-row items-stretch gap-10"
+      >
+        <!-- Bagian Model DGMH-TFT -->
         <div
-          class="absolute inset-0 md:-top-24 -top-32 z-20 flex justify-center text-white"
+          class="flex-1 bg-gradient-to-br from-white/90 to-orange-50 border border-gray-200 rounded-3xl shadow-2xl p-8 flex flex-col justify-start hover:shadow-orange-200/60 transition-all duration-500 pt-16"
         >
-          <div
-            class="flex flex-col gap-2 text-center justify-center w-full px-5 max-w-screen-xl"
+          <h1
+            class="font-extrabold text-3xl md:text-4xl mb-10 text-center text-gray-900"
           >
-            <h1 class="font-bold md:text-xl text-2xl lg:text-4xl" id="CobaAI">
-              Where AI Meets the Sun ☀️⚡
-            </h1>
-            <h1
-              class="md:px-14 text-semibold md:text-xl text-xs lg:text-xl capitalize"
+            🧠 Tentang Model DGMH-TFT
+          </h1>
+
+          <p class="text-gray-700 text-lg leading-relaxed text-justify mb-6">
+            Sistem prediksi ini dibangun menggunakan
+            <strong class="text-blue-700">
+              Dual-Gate Multi-Head Temporal Fusion Transformer (DGMH-TFT) </strong
+            >, sebuah arsitektur
+            <strong class="text-emerald-700">deep learning</strong> berbasis
+            <code
+              class="px-2 py-1 bg-gray-100 rounded-md text-sm text-gray-800"
             >
-              "Powered by the Dual-Gate Multi-Head Temporal Fusion Transformer
-              (DGMH-TFT), this system delivers highly accurate 24-hour ahead
-              solar power predictions. By leveraging historical PV output, past
-              weather records, and meteorological forecasts, it provides
-              actionable insights to maximize renewable energy efficiency and
-              grid stability."
-            </h1>
-          </div>
+              PyTorch
+            </code>
+            yang mampu memproses data deret waktu seperti keluaran panel surya
+            dan data cuaca untuk menghasilkan prediksi daya 24 jam ke depan.
+          </p>
+
+          <ul class="list-none space-y-3 mb-6">
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 mt-1">✔</span>
+              <p>
+                <strong>Input:</strong> Data historis PV output, rekam cuaca
+                masa lalu, dan prakiraan meteorologi.
+              </p>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 mt-1">✔</span>
+              <p>
+                <strong>Evaluasi:</strong> Menggunakan metrik
+                <code class="bg-gray-100 px-2 py-1 rounded-md text-sm">R²</code>
+                dan
+                <code class="bg-gray-100 px-2 py-1 rounded-md text-sm"
+                  >MSE</code
+                >
+                untuk menilai performa model.
+              </p>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 mt-1">✔</span>
+              <p>
+                <strong>Framework:</strong> Backend <code>Flask</code> dengan
+                <code>scikit-learn</code> dan <code>pandas</code>.
+              </p>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-green-500 mt-1">✔</span>
+              <p>
+                <strong>Interpretabilitas:</strong> Fungsi
+                <code class="bg-gray-100 px-2 py-1 rounded-md text-sm"
+                  >interpret_output()</code
+                >
+                menghasilkan visualisasi fitur dominan dalam prediksi.
+              </p>
+            </li>
+          </ul>
+
+          <p class="text-gray-700 text-lg leading-relaxed text-justify">
+            Saat file CSV diunggah, sistem memproses data lewat
+            <code class="bg-gray-100 px-2 py-1 rounded-md text-sm"
+              >clean_data()</code
+            >
+            lalu model DGMH-TFT menghasilkan grafik prediksi & interpretasi.
+          </p>
         </div>
 
+        <!-- Bagian Solusi AI -->
         <div
-          v-for="(image, index) in images"
-          :key="index"
-          :class="[
-            'duration-700 ease-in-out  w-full h-full',
-            currentIndex === index ? 'block' : 'hidden',
-          ]"
+          class="flex-1 bg-gradient-to-br from-white/90 to-orange-50 border border-gray-200 rounded-3xl shadow-2xl p-8 flex flex-col justify-start hover:shadow-orange-200/60 transition-all duration-500 pt-16"
         >
-          <div class="absolute inset-0 bg-black opacity-70 z-10"></div>
-          <img
-            :src="`/assets/${image}`"
-            class="CarrosalItem object-cover w-full h-full"
-            :alt="`Image ${index + 1}`"
-          />
+          <h2
+            class="text-3xl md:text-4xl text-gray-900 text-center font-extrabold mb-10"
+          >
+            ☀️ Solusi <span class="text-orange-600">AI Solar Forecasting</span>
+          </h2>
+
+          <p class="text-gray-700 text-lg leading-relaxed mb-6 text-justify">
+            Dirancang untuk membantu
+            <strong>operator energi surya</strong> dalam melakukan perencanaan
+            dan pengelolaan daya secara efisien dengan kecerdasan buatan
+            <strong>DGMH-TFT</strong>. Dengan prediksi hingga
+            <strong>24 jam ke depan</strong>, sistem ini mengoptimalkan
+            distribusi energi dan menekan kerugian produksi.
+          </p>
+
+          <ul class="space-y-3 text-gray-700 mb-6">
+            <li class="flex gap-3 items-start">
+              <span class="text-orange-500 mt-1">⚡</span>
+              <p>
+                <strong>Prediksi Daya Real-Time:</strong> Pembaruan tiap jam
+                memantau performa panel secara dinamis.
+              </p>
+            </li>
+            <li class="flex gap-3 items-start">
+              <span class="text-orange-500 mt-1">📊</span>
+              <p>
+                <strong>Analisis Tren Energi:</strong> Menunjukkan pengaruh
+                cuaca terhadap produksi energi.
+              </p>
+            </li>
+            <li class="flex gap-3 items-start">
+              <span class="text-orange-500 mt-1">🔍</span>
+              <p>
+                <strong>Integrasi API:</strong> Dapat terhubung ke dashboard
+                monitoring & IoT.
+              </p>
+            </li>
+            <li class="flex gap-3 items-start">
+              <span class="text-orange-500 mt-1">🧭</span>
+              <p>
+                <strong>Decision Support:</strong> Membantu menentukan waktu
+                maintenance & optimasi.
+              </p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-    <div
-      class="bg-white md:rounded-t-[2.5rem] rounded-t-[2rem] -top-14 relative md:-top-8 z-20"
-      id="CobaAI"
-    >
-      <div class="flex justify-center w-full md:px-0 px-8">
-        <div class="max-w-screen-md w-full relative -top-28 md:-top-20">
+
+    <!-- === FORM UPLOAD === -->
+    <div class="" id="CobaAI">
+      <div class="flex justify-center py-20 w-full md:px-0 px-8">
+        <div class="max-w-screen-md w-full relative">
           <form
             @submit.prevent="submitForm"
             enctype="multipart/form-data"
             class="flex flex-col gap-6 p-6 bg-white rounded-2xl shadow-md w-full mx-auto"
           >
             <div class="flex flex-col gap-2">
-              <label for="file" class="text-sm font-medium text-gray-700"
-                >Upload File (CSV Only)</label
-              >
+              <label for="file" class="text-sm font-medium text-gray-700">
+                Upload File (CSV Only)
+              </label>
               <input
                 ref="fileInput"
                 type="file"
@@ -78,6 +184,8 @@
           </form>
         </div>
       </div>
+
+      <!-- === HASIL PREDIKSI === -->
       <div
         id="PopHasil"
         aria-hidden="true"
@@ -87,11 +195,11 @@
           <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div class="w-full flex flex-col gap-2">
               <h1 class="font-bold text-xl md:text-3xl">Hasil Prediksi</h1>
-              <img :src="ImagePred" alt="" srcset="" />
+              <img :src="ImagePred" alt="Prediction Image" />
             </div>
             <div class="w-full flex flex-col gap-2">
-              <h1 class="font-bold text-xl md:text-3xl">Hasil interpretasi</h1>
-              <img :src="ImageInter" alt="ImageInter" srcset="" />
+              <h1 class="font-bold text-xl md:text-3xl">Hasil Interpretasi</h1>
+              <img :src="ImageInter" alt="Interpretation Image" />
             </div>
           </div>
           <h1 class="font-bold text-xl md:text-3xl">Hasil Prediksi Horizon</h1>
@@ -100,20 +208,20 @@
               <table class="w-full text-sm md:text-lg text-left rtl:text-right">
                 <thead class="text-xs uppercase bg-gray-700 text-white">
                   <tr>
-                    <th class="md:px-4 md:py-2 px-2 py-1">horizon</th>
-                    <th class="md:px-4 md:py-2 px-2 py-1">prediction</th>
+                    <th class="md:px-4 md:py-2 px-2 py-1">Horizon</th>
+                    <th class="md:px-4 md:py-2 px-2 py-1">Prediction</th>
                     <th class="md:px-4 md:py-2 px-2 py-1">Tanggal</th>
                     <th class="md:px-4 md:py-2 px-2 py-1">Jam</th>
                   </tr>
                 </thead>
-                <tbody class="">
+                <tbody>
                   <tr
                     v-for="(data, index) in rows"
                     :key="index"
                     class="bg-white border-b border-gray-200 hover:bg-gray-50"
                   >
                     <td
-                      class="md:px-4 md:py-2 px-2 py-1 font-medium text-gray-900 whitespace-nowrap"
+                      class="md:px-4 md:py-2 px-2 py-1 font-medium text-gray-900"
                     >
                       {{ data.horizon }}
                     </td>
@@ -127,11 +235,10 @@
                       {{ data.timestamp.split(" ")[1].split("+")[0] }}
                     </td>
                   </tr>
-
-                  <tr v-if="rows?.length === 0">
+                  <tr v-if="rows.length === 0">
                     <td
-                      colspan="6"
-                      class="md:px-4 md:py-2 px-2 py-1 text-center text-gray-900 md:text-base text-sm"
+                      colspan="4"
+                      class="md:px-4 md:py-2 px-2 py-1 text-center text-gray-900"
                     >
                       Data tidak tersedia
                     </td>
@@ -143,20 +250,22 @@
         </div>
       </div>
     </div>
+
+    <!-- === POPUP LOADING === -->
     <div
       id="PopupAnalisis"
-      tabIndex="-1"
-      className="hidden fixed inset-0 z-50 justify-center items-center bg-black/50 px-6 md:px-0 overflow-y-auto"
+      tabindex="-1"
+      class="hidden fixed inset-0 z-50 justify-center items-center bg-black/50 px-6 md:px-0 overflow-y-auto"
     >
-      <div className="relative w-full max-w-sm">
-        <div className="bg-white rounded-2xl shadow-lg">
-          <div className="flex flex-col justify-center items-center relative ">
+      <div class="relative w-full max-w-sm">
+        <div class="bg-white rounded-2xl shadow-lg p-4">
+          <div class="flex flex-col justify-center items-center">
             <div
-              className="w-full h-full flex justify-center items-center relative bg-black/20 rounded-2xl pl-2"
+              class="w-full flex justify-center items-center bg-black/20 rounded-2xl"
             >
               <div
                 ref="lottieContainerSoil"
-                className="lottie-animation w-full md:w-96"
+                class="lottie-animation w-full md:w-96"
               ></div>
             </div>
           </div>
@@ -183,11 +292,11 @@ const currentIndex = ref(0);
 const ImagePred = ref("");
 const ImageInter = ref("");
 const rows = ref([]);
-
 const fileInput = ref(null);
 const lottieContainerSoil = ref(null);
 
 onMounted(() => {
+  // Lottie Loading
   lottie.loadAnimation({
     container: lottieContainerSoil.value,
     renderer: "svg",
@@ -196,91 +305,59 @@ onMounted(() => {
     path: "/assets/Loading.json",
   });
 
-  // Carousel
-  const carousel = document.getElementById("Carrosal");
-  const items = carousel.querySelectorAll(".CarrosalItem");
+  // Simple Carousel
+  const items = document.querySelectorAll(".CarrosalItem");
   let index = 0;
-  let interval;
-
-  const updateActiveSlide = (newIndex) => {
+  const showNext = () => {
     items[index].parentNode.classList.add("hidden");
-    items[index].parentNode.classList.remove("block");
-
-    items[newIndex].parentNode.classList.remove("hidden");
-    items[newIndex].parentNode.classList.add("block");
-
-    index = newIndex;
+    index = (index + 1) % items.length;
+    items[index].parentNode.classList.remove("hidden");
   };
-
-  const showNextSlide = () => {
-    const nextIndex = (index + 1) % items.length;
-    updateActiveSlide(nextIndex);
-  };
-
-  const startAutoSlide = () => {
-    interval = setInterval(showNextSlide, 3000);
-  };
-
-  const stopAutoSlide = () => {
-    clearInterval(interval);
-  };
-
-  carousel.addEventListener("mouseenter", stopAutoSlide);
-  carousel.addEventListener("mouseleave", startAutoSlide);
-
-  startAutoSlide();
+  setInterval(showNext, 3000);
 });
 
 onBeforeUnmount(() => {
   lottie.destroy();
 });
 
-// methods
+// === Submit CSV ===
 const submitForm = async () => {
   const PopupAnalisis = document.getElementById("PopupAnalisis");
   const PopHasil = document.getElementById("PopHasil");
 
-  PopupAnalisis.classList.add("flex");
   PopupAnalisis.classList.remove("hidden");
+  PopupAnalisis.classList.add("flex");
 
   try {
     const formData = new FormData();
     formData.append("file", fileInput.value.files[0]);
 
-    const response = await axios.post(
+    const { data } = await axios.post(
       import.meta.env.VITE_BASE_URL + "predict",
       formData
     );
-    const data = response.data;
 
-    toast.success(data.message, {
+    toast.success(data.message || "Prediksi berhasil!", {
       position: toast.POSITION.TOP_RIGHT,
-      className: "foo-bar",
-      pauseOnHover: false,
     });
 
     ImagePred.value = `${import.meta.env.VITE_BASE_URL}FileUpload/${
       data.prediction_files
     }`;
-
     ImageInter.value = `${import.meta.env.VITE_BASE_URL}FileUpload/${
       data.interpretation_file
     }`;
     rows.value = data.rows;
 
-    PopHasil.classList.add("flex");
     PopHasil.classList.remove("hidden");
-    PopHasil.setAttribute("aria-hidden", "false");
+    PopHasil.classList.add("flex");
   } catch (error) {
-    console.log("error:", error);
-    toast.error(error.message || error, {
+    toast.error(error.message || "Gagal melakukan prediksi.", {
       position: toast.POSITION.TOP_RIGHT,
-      className: "foo-bar",
-      pauseOnHover: false,
     });
   } finally {
-    PopupAnalisis.classList.remove("flex");
     PopupAnalisis.classList.add("hidden");
+    PopupAnalisis.classList.remove("flex");
   }
 };
 </script>
