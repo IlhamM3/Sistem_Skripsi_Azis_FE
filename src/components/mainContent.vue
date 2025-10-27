@@ -1,11 +1,27 @@
 <template>
-  <section class="from-orange-500 to-white min-h-screen bg-gradient-to-b">
+  <!-- <section class="from-blue-900 to-blue-400 min-h-screen bg-gradient-to-b"> -->
+  <section class="bg-gradient-to-b from-[#020618] via-[#162456] to-[#51a2ff] min-h-screen">
+  <!-- <section class="bg-blue-900 min-h-screen"> -->
     <!-- === SECTION HERO === -->
+
+    <!-- === CAROUSEL === -->
+    <div  class="absolute inset-0 z-0 opacity-10 overflow-hidden rounded-b-[30px] pointer-events-none">
+      <div class="w-full h-full relative">
+        <img
+          v-for="(img, i) in images"
+          :key="i"
+          :src="`/assets/${img}`"
+          class="CarrosalItem absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+          :class="{ 'opacity-100': i === currentIndex, 'opacity-0': i !== currentIndex }"
+        />
+      </div>
+    </div>
+
     <div
-      class="flex flex-col items-center justify-center pb-52 pt-72 text-white"
+      class="relative z-10 flex flex-col items-center justify-center pb-52 pt-72 text-white"
     >
       <h1 class="text-6xl font-extrabold">
-        AI-Powered <span class="text-gray-900">Solar Forecasting</span>
+        AI-Powered <span class="text-amber-600">Solar Forecasting</span>
       </h1>
       <p class="text-center text-xl pt-5">
         Optimalkan performa energi surya dengan prediksi akurat berbasis AI
@@ -13,7 +29,7 @@
       </p>
       <a
         href="#CobaAI"
-        class="bg-orange-500 px-5 py-3 rounded-xl mt-10 shadow-xl hover:bg-orange-900 transition-all"
+        class="bg-amber-600 px-5 py-3 rounded-xl mt-10 shadow-xl hover:bg-amber-900 transition-all"
         >Coba Sekarang</a
       >
     </div>
@@ -25,7 +41,7 @@
       >
         <!-- Bagian Model DGMH-TFT -->
         <div
-          class="flex-1 bg-gradient-to-br from-white/90 to-orange-50 border border-gray-200 rounded-3xl shadow-2xl p-8 flex flex-col justify-start hover:shadow-orange-200/60 transition-all duration-500 pt-16"
+          class="flex-1 bg-gradient-to-br from-white/90 to-amber-50 border border-gray-200 rounded-3xl shadow-2xl p-8 flex flex-col justify-start hover:shadow-blue-200/60 transition-all duration-500 pt-16"
         >
           <h1
             class="font-extrabold text-3xl md:text-4xl mb-10 text-center text-gray-900"
@@ -98,12 +114,12 @@
 
         <!-- Bagian Solusi AI -->
         <div
-          class="flex-1 bg-gradient-to-br from-white/90 to-orange-50 border border-gray-200 rounded-3xl shadow-2xl p-8 flex flex-col justify-start hover:shadow-orange-200/60 transition-all duration-500 pt-16"
+          class="flex-1 bg-gradient-to-br from-white/90 to-amber-50 border border-gray-200 rounded-3xl shadow-2xl p-8 flex flex-col justify-start hover:shadow-blue-200/60 transition-all duration-500 pt-16"
         >
           <h2
             class="text-3xl md:text-4xl text-gray-900 text-center font-extrabold mb-10"
           >
-            ☀️ Solusi <span class="text-orange-600">AI Solar Forecasting</span>
+            ☀️ Solusi <span class="text-amber-600">AI Solar Forecasting</span>
           </h2>
 
           <p class="text-gray-700 text-lg leading-relaxed mb-6 text-justify">
@@ -117,28 +133,28 @@
 
           <ul class="space-y-3 text-gray-700 mb-6">
             <li class="flex gap-3 items-start">
-              <span class="text-orange-500 mt-1">⚡</span>
+              <span class="text-amber-600 mt-1">⚡</span>
               <p>
                 <strong>Prediksi Daya Real-Time:</strong> Pembaruan tiap jam
                 memantau performa panel secara dinamis.
               </p>
             </li>
             <li class="flex gap-3 items-start">
-              <span class="text-orange-500 mt-1">📊</span>
+              <span class="text-amber-600 mt-1">📊</span>
               <p>
                 <strong>Analisis Tren Energi:</strong> Menunjukkan pengaruh
                 cuaca terhadap produksi energi.
               </p>
             </li>
             <li class="flex gap-3 items-start">
-              <span class="text-orange-500 mt-1">🔍</span>
+              <span class="text-amber-600 mt-1">🔍</span>
               <p>
                 <strong>Integrasi API:</strong> Dapat terhubung ke dashboard
                 monitoring & IoT.
               </p>
             </li>
             <li class="flex gap-3 items-start">
-              <span class="text-orange-500 mt-1">🧭</span>
+              <span class="text-amber-600 mt-1">🧭</span>
               <p>
                 <strong>Decision Support:</strong> Membantu menentukan waktu
                 maintenance & optimasi.
@@ -282,10 +298,10 @@ import lottie from "lottie-web";
 import { toast } from "vue3-toastify";
 
 const images = ref([
+  "image4.png",
   "image1.png",
   "image2.png",
   "image3.png",
-  "image4.png",
   "image5.png",
 ]);
 const currentIndex = ref(0);
@@ -305,15 +321,11 @@ onMounted(() => {
     path: "/assets/Loading.json",
   });
 
-  // Simple Carousel
-  const items = document.querySelectorAll(".CarrosalItem");
-  let index = 0;
-  const showNext = () => {
-    items[index].parentNode.classList.add("hidden");
-    index = (index + 1) % items.length;
-    items[index].parentNode.classList.remove("hidden");
-  };
-  setInterval(showNext, 3000);
+  // Carousel reactive
+  setInterval(() => {
+    currentIndex.value = (currentIndex.value + 1) % images.value.length;
+  }, 6000); // Ganti interval sesuai selera
+
 });
 
 onBeforeUnmount(() => {
