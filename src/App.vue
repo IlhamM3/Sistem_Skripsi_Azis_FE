@@ -5,9 +5,9 @@ import mainContent from "./components/mainContent.vue";
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col bg-white">
+  <div class="min-h-screen flex flex-col">
     <navbar />
-    <main class="flex-grow bg-white">
+    <main class="">
       <mainContent />
     </main>
     <FooterCus />
