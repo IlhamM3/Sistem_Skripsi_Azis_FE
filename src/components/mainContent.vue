@@ -1,6 +1,6 @@
 <template>
   <!-- <section class="from-blue-900 to-blue-400 min-h-screen bg-gradient-to-b"> -->
-  <section class="bg-gradient-to-b from-[#020618] via-[#162456] to-[#51a2ff] min-h-screen">
+  <section class="bg-gradient-to-b from-[#020618] via-[#162456] to-[#020618] min-h-screen">
   <!-- <section class="bg-blue-900 min-h-screen"> -->
     <!-- === SECTION HERO === -->
 
@@ -75,18 +75,6 @@
             <li class="flex items-start gap-3">
               <span class="text-green-500 mt-1">✔</span>
               <p>
-                <strong>Evaluasi:</strong> Menggunakan metrik
-                <code class="bg-gray-100 px-2 py-1 rounded-md text-sm">R²</code>
-                dan
-                <code class="bg-gray-100 px-2 py-1 rounded-md text-sm"
-                  >MSE</code
-                >
-                untuk menilai performa model.
-              </p>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-green-500 mt-1">✔</span>
-              <p>
                 <strong>Framework:</strong> Backend <code>Flask</code> dengan
                 <code>scikit-learn</code> dan <code>pandas</code>.
               </p>
@@ -135,29 +123,21 @@
             <li class="flex gap-3 items-start">
               <span class="text-amber-600 mt-1">⚡</span>
               <p>
-                <strong>Prediksi Daya Real-Time:</strong> Pembaruan tiap jam
-                memantau performa panel secara dinamis.
+                <strong>Prediksi Daya:</strong> Sistem memprediksi daya surya yang dhasilkan berdasarkan kondisi meteorologis selama 24 jam ke depan.
               </p>
             </li>
             <li class="flex gap-3 items-start">
               <span class="text-amber-600 mt-1">📊</span>
               <p>
-                <strong>Analisis Tren Energi:</strong> Menunjukkan pengaruh
+                <strong>Analisis Tren Energi:</strong> Menunjukkan pengaruh variabel
                 cuaca terhadap produksi energi.
-              </p>
-            </li>
-            <li class="flex gap-3 items-start">
-              <span class="text-amber-600 mt-1">🔍</span>
-              <p>
-                <strong>Integrasi API:</strong> Dapat terhubung ke dashboard
-                monitoring & IoT.
               </p>
             </li>
             <li class="flex gap-3 items-start">
               <span class="text-amber-600 mt-1">🧭</span>
               <p>
-                <strong>Decision Support:</strong> Membantu menentukan waktu
-                maintenance & optimasi.
+                <strong>Pengambilan Keputusan:</strong> Sebagai pertimbangan dalam penentuan keputusan terkait 
+                maintenance & optimasi sistem fotovoltaik.
               </p>
             </li>
           </ul>
@@ -165,8 +145,28 @@
       </div>
     </div>
 
+    <!-- === SECTION GUIDE === -->
+    <div
+      class="relative z-10 flex flex-col items-center justify-center pb-10 pt-20 text-white" id="CobaAI"
+    >
+      <h1 class="text-6xl font-bold">
+        <span class="text-amber-600">Mulai Prediksi</span>
+      </h1>
+      <p class="text-center text-xl pt-5">
+        <span class="font-semibold">HELIOCAST</span>
+        memerlukan data input historis (data PV output + data cuaca) data ramalan cuaca untuk dapat melakukan prediksi.<br/>
+        Unduh dan isi template data input di bawah ini dan unggah untuk melakukan prediksi !
+      </p>
+      <a
+        href="#UnduhTemplate"
+        class="bg-blue-700 px-5 py-3 rounded-xl mt-10 shadow-xl hover:bg-blue-800 border transition-all"
+        >Unduh Template Data Input</a
+      >
+    </div>
+
+
     <!-- === FORM UPLOAD === -->
-    <div class="" id="CobaAI">
+    <div class="">
       <div class="flex justify-center py-20 w-full md:px-0 px-8">
         <div class="max-w-screen-md w-full relative">
           <form
@@ -185,14 +185,14 @@
                 id="file"
                 required
                 accept=".csv"
-                class="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-600 hover:file:bg-blue-100 border border-gray-300 rounded-lg focus:ring-1 focus:ring-blue-500 focus:outline-none"
+                class="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-amber-200 file:text-gray-600 hover:file:bg-amber-600 hover:file:text-slate-50 border border-gray-300 rounded-lg focus:ring-1 focus:ring-amber-600 focus:outline-none"
               />
             </div>
 
             <div class="flex justify-end">
               <button
                 type="submit"
-                class="cursor-pointer px-6 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold border border-blue-600 shadow hover:bg-blue-400 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                class="cursor-pointer px-6 py-2 rounded-lg bg-amber-600 text-white text-sm font-semibold border border-amber-600 shadow hover:bg-amber-700 focus:ring-2 focus:ring-amber-600 focus:outline-none"
               >
                 Detection
               </button>
