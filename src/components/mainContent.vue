@@ -158,10 +158,12 @@
         Unduh dan isi template data input di bawah ini dan unggah untuk melakukan prediksi !
       </p>
       <a
-        href="#UnduhTemplate"
-        class="bg-blue-700 px-5 py-3 rounded-xl mt-10 shadow-xl hover:bg-blue-800 border transition-all"
-        >Unduh Template Data Input</a
+        href="/Template_Input_Data_HelioCast.xlsx"
+        download="Template_Heliocast.xlsx"
+        class="flex items-center gap-2 bg-blue-700 px-5 py-3 rounded-xl mt-10 shadow-xl hover:bg-blue-800 border transition-all"
       >
+        <span>Unduh Template Data Input</span>
+      </a>
     </div>
 
 
